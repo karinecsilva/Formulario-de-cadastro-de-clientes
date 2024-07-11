@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <style>
+    *{
+      width: auto;
+    }
+    body {
+      background: radial-gradient(circle, #d5d6db, #a4a5ad);
+      font-family: sans-serif;
+      font-size: 1em;
+      margin-left: 5%;
+      margin-right: 5%;
+      justify-content: center;
+    }
+    main {
+      align-items: center;
+      justify-content: center;
+      top: 17%;
+      left: 20%;
+    }
+    .box-header {
+      height: 100%;
+      margin-left: 50%;
+      justify-content: center;
+    }
+    .img-logo {
+      max-width: 80px;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 100%;
+    } /*Imagem Logo*/
+    h1 {
+      font-family: sans-serif;
+      color: #41403f;
+      margin-left: 43%; /**/
+      margin-right: auto;
+      margin-top: 3%; /**/
+      justify-content: center;
+    }
+    .campo {
+      margin-bottom: 1em;
+    }
+    .campo label {
+      margin-bottom: 0.2em;
+      color: #8f8e8e;
+    }
+    #data, #uf, #nomeinput, #cpf, #tel1, #tel2, #tel3, #ass, #neg, #origem {
+      width: 210px;
+      padding: 7px;
+      font-size: 16px;
+      box-sizing: border-box;
+      border-radius: .6em;
+      border: 1px solid #ccc;
+    } /*Ajustes dos inputs*/
+    #nomeinput { width: 750px; }
+    #cpf { width: 240px; }
+    #tel1, #tel2, #tel3 { width: 260px; }
+    #ass, #neg, #origem { width: 300px}
+    #btnE{
+        font-family: sans-serif;
+        font-size: .9rem;
+        width: 300px;
+        background: #535353;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 1em;
+        color: #ececec;
+        padding: .6rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        position:absolute;
+        top: 70%;
+        left: 37%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        transition: .4s;
+      }    /*botao enviar*/
+
+      #btnR{
+        font-family: sans-serif;
+        font-size: .9rem;
+        width: 300px;
+        background: #535353;
+        border: 0;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-bottom: 1em;
+        color: #ececec;
+        padding: .6rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        position:absolute;
+        top: 70%;
+        left: 65%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        transition: .4s;
+      }  /*botao limpar*/
+
+    .botao:hover {
+      background: #838181;
+      box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);
+    }
+    form {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 150px;
+      position: static;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="box-header">
+      <img class="img-logo" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRed5kXPdzvl7zHk2REhHNHxNWw0jyvVbk6-AYi06xHkKxyJWgu" alt="logo">
+    </div>
+    <h1 id="titulo">Cadastro de Cliente</h1><br><br><br>
+  </header>
+  <main>
+    <form id="myForm">
+      <div class="campo">
+        <label for="data"><strong>Data</strong></label>
+        <input type="date" name="data" id="data" required>
+        <label><strong>UF</strong></label>
+        <select id="uf" name="uf" required>
+          <option selected disabled value="">Selecione</option>
+          <option>AMAZONAS</option>
+          <option>BAHIA</option>
+          <option>MATO GROSSO</option>
+          <option>CEARÁ</option>
+          <option>PARA</option>
+          <option>PARANÁ</option>
+          <option>RIO DE JANEIRO</option>
+          <option>RIO GRANDE DO SUL</option>
+          <option>SANTA CATARINA</option>
+        </select>
+        <label for="nome"><strong>Nome</strong></label>
+        <input type="text" name="Nome" id="nomeinput" required>
+      </div>
+      <div class="campo" required>
+        <label for="cpf"><strong>CPF</strong></label>
+        <input type="text" name="Cpf" id="cpf" required>
+        <label for="tel1"><strong>Telefones</strong></label>
+        <input type="tel" name="Telefone1" id="tel1" required>
+        <input type="tel" name="Telefone2" id="tel2" required>
+        <input type="tel" name="Telefone3" id="tel3">
+      </div>
+      <div class="campo">
+        <label><strong>Negativação</strong></label>
+        <select id="neg" name="Negativacao" required>
+          <option selected disabled value="">Selecione</option>
+          <option>ATIVOS</option>
+          <option>BANCO DO BRASIL</option>
+          <option>BANCO PAN</option>
+          <option>BRADESCO</option>
+          <option>CLARO</option>
+          <option>MERCADO PAGO</option>
+          <option>BANCO ORIGINAL</option>
+          <option>BANCO C6</option>
+          <option>EMBRATEL</option>
+          <option>EUDORA</option>
+          <option>FIDC IPANEMA</option>
+          <option>FIDC ITAPEVA</option>
+          <option>FIDC NPL</option>
+          <option>GVT</option>
+          <option>INTERBELLE</option>
+          <option>NET</option>
+          <option>O BOTICÁRIO</option>
+          <option>POP</option>
+          <option>SANTANDER</option>
+          <option>SKY</option>
+          <option>TELEFONICA / VIVO</option>
+          <option>TIM</option>
+          <option>ITAU</option>
+        </select>
+        <label><strong>Assessor</strong></label>
+        <select id="ass" name="Assessor" required>
+          <option selected disabled value="">Selecione</option>
+          <option>BARBARA</option>
+          <option>BEATRIZ</option>
+          <option>GABRIEL</option>
+          <option>GILVAN</option>
+          <option>INGRID</option>
+        </select>
+        <label><strong>Origem</strong></label>
+        <select id="origem" name="Origem" required>
+          <option selected disabled value="">Selecione</option>
+          <option>CAMPANHA</option>
+          <option>CAPTAÇÃO INTERNA</option>
+          <option>CAPTADOR</option>
+          <option>INDICAÇÃO</option>
+          <option>PARCERIA</option>
+        </select>
+      </div>
+      <button type="submit" class="botao" id="btnE">Enviar</button>
+      <button type="reset" class="botao" id="btnR">Limpar</button>
+    </form>
+  </main>
+  <script>
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      var formData = {
+        data: document.getElementById("data").value,
+        Nome: document.getElementById("nomeinput").value,
+        Cpf: document.getElementById("cpf").value,
+        Telefone1: document.getElementById("tel1").value,
+        Telefone2: document.getElementById("tel2").value,
+        Telefone3: document.getElementById("tel3").value,
+        Negativacao: document.getElementById("neg").value,
+        uf: document.getElementById("uf").value,
+        Assessor: document.getElementById("ass").value,
+        Origem: document.getElementById("origem").value
+      };
+      google.script.run.withSuccessHandler(function(response) {
+        alert(response);
+      }).withFailureHandler(function(error) {
+        alert("Ocorreu um erro ao enviar o formulário.");
+      }).processForm(formData);
+    });
+  </script>
+</body>
+</html>
